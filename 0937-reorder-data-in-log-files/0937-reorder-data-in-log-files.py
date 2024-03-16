@@ -1,15 +1,12 @@
 class Solution(object):
     def reorderLogFiles(self, logs):
-        digit_logs = []
-        letter_logs = []
+        """
+        :type logs: List[str]
+        :rtype: List[str]
+        """
+        
+        def custom_sort(log):
+            identifier, content = log.split(" ", 1)
+            return (0, content, identifier) if content[0].isalpha() else (1,)
 
-        for log in logs:
-            if log.split()[1].isdigit():  # Check if second part is a digit
-                digit_logs.append(log)
-            else:
-                letter_logs.append(log)
-
-        # Sort letter logs based on content after identifier
-        letter_logs.sort(key=lambda x: (x.split()[1:], x.split()[0]))
-
-        return letter_logs + digit_logs
+        return sorted(logs, key=custom_sort)
