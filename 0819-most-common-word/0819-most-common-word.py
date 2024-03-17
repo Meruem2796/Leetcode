@@ -1,3 +1,6 @@
+import re
+from collections import Counter
+
 class Solution(object):
     def mostCommonWord(self, paragraph, banned):
         """
@@ -5,8 +8,6 @@ class Solution(object):
         :type banned: List[str]
         :rtype: str
         """
-        import re
-        from collections import Counter
 
         # Supprimer la ponctuation et convertir en minuscules
         paragraph = re.sub(r'[^\w\s]', ' ', paragraph).lower()
