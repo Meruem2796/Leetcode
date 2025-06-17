@@ -1,9 +1,10 @@
-class Solution(object):
-    def isPalindrome(self, x):
-        """
-        :type x: int
-        :rtype: bool
-        """
-        if str(x)[::-1] == str(x):
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        back_x = ""
+        for digit in str(x):
+            back_x = digit + back_x
+
+        if str(x) == back_x:
             return True
-        return False
+        else:
+            return False
