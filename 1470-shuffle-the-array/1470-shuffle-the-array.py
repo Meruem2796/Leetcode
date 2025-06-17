@@ -1,16 +1,10 @@
-class Solution(object):
-    def shuffle(self, nums, n):
-        """
-        :type nums: List[int]
-        :type n: int
-        :rtype: List[int]
-        """
-        list = []
-        list1 = nums[:n]
-        list2 = nums[n:]
+class Solution:
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        output = []
+        first_list = nums[:n]
+        scnd_list = nums[n:]
+        for i, j in zip(first_list, scnd_list):
+            output.append(i)
+            output.append(j)
 
-        for i,j in zip(list1, list2):
-            list.append(i)
-            list.append(j)
-            
-        return list
+        return output
